@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+    direction: rtl;
+}
+
+/* מיכל ראשי שממרכז את הלוח והפקדים במרכז המסך */
+.main-wrapper {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* גוף הלוח */
+#cBody {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#whichMonth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#head {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.week-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+}
+
+.tytle {
+    background-color: #f1f5f9;
+    color: #475569;
+    padding: 8px 2px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.day {
+    min-height: 85px;
+    border-radius: 8px;
+    padding: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: filter 0.2s ease, opacity 0.2s ease, box-shadow 0.15s ease;
+}
+
+.day:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.empty-day {
+    opacity: 0.4;
+    border-style: dashed;
+}
+
+.shabbat {
+    background-color: #f8fafc;
+}
+
+#name {
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.event-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.event-item {
+    background-color: #ffffff;
+    border-right: 3px solid #3b82f6;
+    border-radius: 3px;
+    padding: 2px 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.event-item:hover {
+    background-color: #fef2f2;
+    border-right-color: #ef4444;
+}
+
+/* אזור הפקדים והכפתורים מתחת ללוח */
+.controls-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* עיצוב כפתורים קטנים ועדינים */
+.btn-sm,
+button {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-sm:hover,
+button:hover {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+}
+
+.btn-sm.primary,
+input[type="submit"] {
+    background-color: #334155;
+    color: #ffffff;
+    border-color: #334155;
+}
+
+.btn-sm.primary:hover,
+input[type="submit"]:hover {
+    background-color: #64748b;
+    border-color: #64748b;
+}
+
+/* כרטיסיות טפסים קטנות במרכז */
+.control-card {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 6px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+input[type="color"] {
+    border: none;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    background: none;
+}
+
+/* ימים עם קלאס shabbat - מראה כהה ובולט יותר */
+.day.shabbat {
+    filter: brightness(0.88);
+}
+
+/* ימים מחוץ לחודש (arr ו-arr1) - מראה מוחלש עם פסים אלכסוניים */
+.day.empty-day {
+    opacity: 0.55;
+    background-image: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 8px,
+            rgba(0, 0, 0, 0.06) 8px,
+            rgba(0, 0, 0, 0.06) 16px);
+}
+
+.day.empty-day.shabbat {
+    filter: brightness(0.88);
+    opacity: 0.55;
+}
