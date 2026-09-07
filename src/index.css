@@ -1,0 +1,7 @@
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  direction: rtl;
+  width: 98%;
+  justify-content: center;
+}
